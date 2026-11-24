@@ -1,0 +1,1 @@
+Źródło: https://github.com/STMicroelectronics/cmsis-device-f7 (v1.2.11), Include/ — tylko STM32F746.

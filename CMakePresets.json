@@ -1,0 +1,37 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": { "major": 3, "minor": 25, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "toolchainFile": "${sourceDir}/cmake/arm-none-eabi.cmake"
+    },
+    {
+      "name": "qemu-debug",
+      "displayName": "QEMU mps2-an500 (Cortex-M7) — Debug",
+      "description": "Bez płytki: uruchamianie i debugowanie w emulatorze QEMU",
+      "inherits": "base",
+      "cacheVariables": { "RTOS_BOARD": "qemu-mps2-an500", "CMAKE_BUILD_TYPE": "Debug" }
+    },
+    {
+      "name": "f746-debug",
+      "displayName": "STM32F746G-DISCO — Debug",
+      "inherits": "base",
+      "cacheVariables": { "RTOS_BOARD": "stm32f746g-disco", "CMAKE_BUILD_TYPE": "Debug" }
+    },
+    {
+      "name": "f746-release",
+      "displayName": "STM32F746G-DISCO — Release",
+      "inherits": "base",
+      "cacheVariables": { "RTOS_BOARD": "stm32f746g-disco", "CMAKE_BUILD_TYPE": "Release" }
+    }
+  ],
+  "buildPresets": [
+    { "name": "qemu-debug",   "configurePreset": "qemu-debug" },
+    { "name": "f746-debug",   "configurePreset": "f746-debug" },
+    { "name": "f746-release", "configurePreset": "f746-release" }
+  ]
+}

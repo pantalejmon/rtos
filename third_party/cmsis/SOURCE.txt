@@ -1,0 +1,1 @@
+Źródło: https://github.com/ARM-software/CMSIS_6 (tag v6.4.0), CMSIS/Core/Include — tylko pliki potrzebne dla Cortex-M7 + GCC.
